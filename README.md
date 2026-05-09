@@ -1,106 +1,129 @@
 # Portfolio Website - Laravel CRUD System
 
-A modern, professional portfolio website for IT students with complete CRUD functionality, admin panel, and beautiful glassmorphism design.
+A modern, professional portfolio website for showcasing projects, certificates, and skills with complete CRUD functionality and an elegant admin panel.
 
 ![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=flat-square&logo=laravel)
 ![PHP](https://img.shields.io/badge/PHP-8.1+-777BB4?style=flat-square&logo=php)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.0-38B2AC?style=flat-square&logo=tailwind-css)
-![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat-square&logo=mysql)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
-## ✨ Features
+## 📖 About
+
+**Portofoliov2** is a comprehensive portfolio management system built with Laravel. It allows users to showcase their projects, certifications, and skills with a beautiful interface featuring glassmorphism design, dark/light mode, and a powerful admin panel for content management.
+
+## ✨ Key Features
 
 ### Public Website
-- 🏠 **Stunning Homepage** - Hero section, about, featured projects, certificates, and skills
+- 🏠 **Stunning Homepage** - Hero section, about section, featured projects, certificates, and skills showcase
 - 📂 **Projects Showcase** - Filter by category, detailed project pages with gallery
-- 🏆 **Certificates Gallery** - Display professional certifications
+- 🏆 **Certificates Gallery** - Display professional certifications and achievements
 - 📧 **Contact Form** - With validation and spam protection
-- 🌓 **Dark/Light Mode** - System preference detection
-- 📱 **Fully Responsive** - Mobile-first design
+- 🌓 **Dark/Light Mode** - Automatic system preference detection with manual toggle
+- 📱 **Fully Responsive** - Mobile-first design that works on all devices
 
 ### Admin Panel
-- 📊 **Dashboard** - Statistics overview, recent activities
-- 📝 **Projects CRUD** - Full management with image upload, tags, gallery
-- 🎓 **Certificates CRUD** - Manage certifications with credentials
+- 📊 **Dashboard** - Statistics overview and recent activities
+- 📝 **Projects CRUD** - Full management with image upload, tags, and gallery
+- 🎓 **Certificates CRUD** - Manage certifications with credentials and dates
 - 💻 **Skills CRUD** - Technical and soft skills with proficiency levels
-- 📬 **Contact Messages** - View and manage messages
+- 📬 **Contact Messages** - View and manage incoming messages
+- ⚙️ **Settings** - Configure portfolio information and social links
 
 ### Design
-- 🎨 **Glassmorphism** - Modern frosted glass effects
-- 🌈 **Gradient Accents** - Beautiful color transitions
-- ✨ **Smooth Animations** - Scroll reveals and hover effects
-- 🎯 **Clean Typography** - Inter & Poppins fonts
+- 🎨 **Glassmorphism** - Modern frosted glass effects throughout the interface
+- 🌈 **Gradient Accents** - Beautiful color transitions and visual hierarchy
+- ✨ **Smooth Animations** - Scroll reveals and hover effects for engagement
+- 🎯 **Clean Typography** - Professional fonts (Inter & Poppins)
+
+## 🛠️ Tech Stack
+
+- **Framework:** Laravel 12 (31% PHP, 69% Blade)
+- **Frontend:** Blade Templating, Alpine.js
+- **Styling:** Tailwind CSS
+- **Database:** MySQL 8.0+
+- **Build Tool:** Vite
+- **Package Manager:** Composer, NPM
 
 ## 🚀 Installation
 
-### Requirements
-- PHP 8.1+
+### Prerequisites
+
+- PHP 8.1 or higher
 - Composer
-- MySQL 8.0+
-- Node.js & NPM (optional for assets)
+- MySQL 8.0 or higher
+- Node.js & NPM
 
-### Steps
+### Step-by-Step Setup
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/username/portfolio.git
-cd portfolio
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/PrasetyaRiski/Portofoliov2.git
+   cd Portofoliov2
+   ```
 
-2. **Install PHP dependencies**
-```bash
-composer install
-```
+2. **Install PHP dependencies:**
+   ```bash
+   composer install
+   ```
 
-3. **Environment setup**
-```bash
-cp .env.example .env
-php artisan key:generate
-```
+3. **Install JavaScript dependencies:**
+   ```bash
+   npm install
+   ```
 
-4. **Configure database**
-Edit `.env` file:
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=portfolio
-DB_USERNAME=root
-DB_PASSWORD=
-```
+4. **Setup environment file:**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-5. **Run migrations and seeders**
-```bash
-php artisan migrate --seed
-```
+5. **Configure database in `.env`:**
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=portfolio
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-6. **Create storage link**
-```bash
-php artisan storage:link
-```
+6. **Run database migrations:**
+   ```bash
+   php artisan migrate --seed
+   ```
 
-7. **Start the server**
-```bash
-php artisan serve
-```
+7. **Create storage link for image uploads:**
+   ```bash
+   php artisan storage:link
+   ```
 
-8. **Access the website**
-- Public: http://localhost:8000
-- Admin: http://localhost:8000/admin
-- Login: admin@portfolio.dev / password
+8. **Start development server:**
+   ```bash
+   npm run dev        # Terminal 1 - Build assets
+   php artisan serve  # Terminal 2 - Laravel server
+   ```
+
+9. **Access the application:**
+   - Public: `http://localhost:8000`
+   - Admin: `http://localhost:8000/admin`
+   - Default credentials: `admin@portfolio.dev` / `password`
 
 ## 📁 Project Structure
 
 ```
-portfolio/
+Portofoliov2/
 ├── app/
 │   ├── Http/
 │   │   ├── Controllers/
 │   │   │   ├── Admin/           # Admin CRUD controllers
-│   │   │   ├── Api/             # API controllers
-│   │   │   └── ...              # Public controllers
-│   │   └── Requests/            # Form validation
-│   ├── Models/                  # Eloquent models
-│   └── Services/                # Business logic
+│   │   │   ├── Auth/            # Authentication controllers
+│   │   │   └── PublicController # Public site controllers
+│   │   └── Requests/            # Form validation requests
+│   └── Models/
+│       ├── Project.php
+│       ├── Certificate.php
+│       ├── Skill.php
+│       └── ContactMessage.php
 ├── config/
 │   └── portfolio.php            # Portfolio configuration
 ├── database/
@@ -115,12 +138,15 @@ portfolio/
 ├── routes/
 │   ├── web.php                  # Web routes
 │   └── api.php                  # API routes
-└── public/                      # Public assets
+├── public/                      # Public accessible assets
+├── storage/                     # File uploads directory
+└── README.md
 ```
 
 ## ⚙️ Configuration
 
 ### Portfolio Settings
+
 Edit `config/portfolio.php` to customize:
 - Owner information (name, title, bio)
 - Social media links
@@ -128,7 +154,19 @@ Edit `config/portfolio.php` to customize:
 - SEO settings
 
 ### Environment Variables
+
 ```env
+# Application
+APP_NAME=Portfolio
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+# Database
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_DATABASE=portfolio
+
 # Portfolio Owner
 PORTFOLIO_OWNER_NAME="Your Name"
 PORTFOLIO_OWNER_TITLE="Full Stack Developer"
@@ -141,8 +179,10 @@ PORTFOLIO_LINKEDIN_URL="https://linkedin.com/in/username"
 
 ## 🔧 Customization
 
-### Colors
-The primary color scheme uses Tailwind CSS custom colors. Modify in layout files:
+### Change Colors
+
+Modify Tailwind CSS custom colors in layout files:
+
 ```html
 <style>
     :root {
@@ -152,113 +192,109 @@ The primary color scheme uses Tailwind CSS custom colors. Modify in layout files
 </style>
 ```
 
-### Adding New Categories
+### Add New Project Categories
+
 Edit `config/portfolio.php`:
+
 ```php
 'projects' => [
     'categories' => [
         'web' => 'Web Application',
         'mobile' => 'Mobile App',
-        // Add more...
+        'ui-design' => 'UI Design',
     ],
 ],
 ```
 
+### Upload Custom Logo
+
+Place your logo in `public/images/` and update the view file:
+
+```blade
+<img src="{{ asset('images/logo.png') }}" alt="Logo">
+```
+
 ## 🔒 Security
 
-- CSRF protection on all forms
-- Password hashing with bcrypt
-- SQL injection prevention via Eloquent
-- XSS protection with Blade escaping
-- Rate limiting on API endpoints
+- ✅ CSRF protection on all forms
+- ✅ Password hashing with bcrypt
+- ✅ SQL injection prevention via Eloquent ORM
+- ✅ XSS protection with Blade template escaping
+- ✅ Rate limiting on API endpoints
+- ✅ Authentication middleware for admin routes
 
-## 🌐 cPanel Hosting Deployment
+## 🌐 Deployment (cPanel Hosting)
 
-Jika menggunakan shared hosting cPanel, ikuti langkah berikut:
+### Requirements
 
-### 1. Upload Files
-Upload semua file ke hosting. Struktur folder seharusnya:
-```
-/home/username/
-├── public_html/          # Isi folder public Laravel
-│   ├── index.php
-│   ├── storage/          # Folder storage (manual, bukan symlink)
-│   └── ...
-└── laravel/              # Folder utama Laravel (di luar public_html)
-    ├── app/
-    ├── config/
-    ├── storage/
-    └── ...
-```
+- Shared hosting with PHP 8.1+
+- SSH/Terminal access
+- MySQL database
 
-### 2. Edit index.php
-Edit `public_html/index.php` untuk mengarah ke folder Laravel:
-```php
-require __DIR__.'/../laravel/vendor/autoload.php';
-$app = require_once __DIR__.'/../laravel/bootstrap/app.php';
-```
+### Steps
 
-### 3. Konfigurasi .env
-```env
-APP_ENV=production
-APP_DEBUG=false
-APP_URL=https://yourdomain.com
+1. **Upload files to hosting:**
+   ```
+   /home/username/
+   ├── public_html/          # Public files (index.php, storage/)
+   └── laravel/              # Private Laravel files
+   ```
 
-FORCE_HTTPS=true
-```
+2. **Edit `public_html/index.php`:**
+   ```php
+   require __DIR__.'/../laravel/vendor/autoload.php';
+   $app = require_once __DIR__.'/../laravel/bootstrap/app.php';
+   ```
 
-### 4. Fix Storage/Gambar Tidak Tampil
+3. **Configure `.env`:**
+   ```env
+   APP_ENV=production
+   APP_DEBUG=false
+   APP_URL=https://yourdomain.com
+   ```
 
-Di cPanel shared hosting, **symlink biasanya tidak berfungsi**. Solusi:
-
-**Opsi A: Sync via Admin Panel**
-- Login ke Admin Panel → Settings
-- Klik tombol "Sync Storage Files"
-
-**Opsi B: Sync via Terminal/SSH**
-```bash
-php artisan storage:sync
-```
-
-**Opsi C: Manual**
-- Copy semua isi dari `storage/app/public/` ke `public_html/storage/`
-
-### 5. Set Permissions
-```bash
-chmod -R 755 storage
-chmod -R 755 bootstrap/cache
-chmod -R 755 public_html/storage
-```
-
-### Troubleshooting Gambar Tidak Tampil
-1. Pastikan folder `public_html/storage` ada dan writable
-2. Pastikan URL di `.env` (APP_URL) benar
-3. Gunakan fitur "Sync Storage Files" setelah upload gambar baru
-4. Cek permission folder: harus `755` atau `775`
+4. **Fix image display issues:**
+   - Sync storage: `php artisan storage:sync`
+   - Or copy: `storage/app/public/*` → `public_html/storage/`
+   - Set permissions: `chmod -R 755 storage bootstrap/cache`
 
 ## 📝 API Documentation
 
-### Projects
+### Projects Endpoint
 - `GET /api/projects` - List all projects
 - `GET /api/projects/{slug}` - Get single project
+- `POST /api/projects` - Create project (admin)
+- `PUT /api/projects/{id}` - Update project (admin)
+- `DELETE /api/projects/{id}` - Delete project (admin)
 
-### Certificates
+### Certificates Endpoint
 - `GET /api/certificates` - List all certificates
+- `POST /api/certificates` - Create certificate (admin)
 
-### Skills
+### Skills Endpoint
 - `GET /api/skills` - List all skills
+- `POST /api/skills` - Create skill (admin)
 
 ## 🤝 Contributing
 
+We welcome contributions! To contribute:
+
 1. Fork the repository
-2. Create feature branch (`git checkout -b feature/amazing`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing`)
-5. Open Pull Request
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📄 License
 
-This project is open-sourced software licensed under the [MIT license](LICENSE).
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
+## 👤 Author
 
-⭐ Star this repository if you found it helpful!
+**Prasetya Riski Wa'afan**
+
+---
+
+⭐ **If you find this project helpful, please give it a star!**
+
+*Last Updated: May 9, 2026*
