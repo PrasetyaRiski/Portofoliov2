@@ -260,12 +260,5 @@ chmod -R 755 public_html/storage
 
 This project is open-sourced software licensed under the [MIT license](LICENSE).
 
-## 👤 Author
-
-**Your Name**
-- GitHub: [@username](https://github.com/username)
-- LinkedIn: [Your Name](https://linkedin.com/in/username)
-
----
 
 ⭐ Star this repository if you found it helpful!
